@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Video Downloader</title>
+</head>
+<body>
+    <h1>YouTube Video Downloader</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="excel_file">Attach Excel File:</label>
+        <input type="file" name="excel_file" accept=".xlsx" required>
+        <br>
+        <button type="submit">Download Videos</button>
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    {% if download_links %}
+        <h2>Download Locations:</h2>
+        <ul>
+            {% for link in download_links %}
+                <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
